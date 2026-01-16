@@ -178,6 +178,60 @@ function pomodoro(){
     });
 }
 
+pomodoro();
+
+const apiKey="de2f3acf37224a8f931125855261501";
+let city="kolkata";
+
+function getMonthAndDayString(){
+  const dateTab=document.querySelector(".part-1 .date");
+  const weekTab=document.querySelector(".part-1 .week");
+  const now = new Date();
+
+  const pad = (num) => String(num).padStart(2, '0');
+
+  let month = now.toLocaleString('en-IN', { month: 'long' });
+  let day = now.toLocaleString('en-IN', { weekday: 'long' });
+  let date = now.getDate();
+  let fullyear=now.getFullYear();
+
+  let hours = pad(now.getHours());
+  let minutes = pad(now.getMinutes());
+  let seconds = pad(now.getSeconds());
+
+  dateTab.innerHTML=`${date} ${month},${fullyear}`;
+  weekTab.innerHTML=`${day},${hours}:${minutes}:${seconds}`;
+}
+
+setInterval(()=>{
+    getMonthAndDayString();
+},1000);
+
+async function weatherApi(){
+    const tempTab=document.querySelector(".temp");
+    const prepTab=document.querySelector(".prep");
+    const condnTab=document.querySelector(".condn");
+    const windTab=document.querySelector(".wind");
+    const humTab=document.querySelector(".hum");
+
+    let rawdata=await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`);
+    let data=await rawdata.json();
+
+    let temp=data.current.temp_c;
+    let prep=data.current.precip_in;
+    let condn=data.current.condition.text;
+    let wind=data.current.wind_kph;
+    let hum=data.current.humidity;
+
+    tempTab.innerHTML=`${temp}°C`;
+    prepTab.innerHTML=`Precipitation:${prep}%`;
+    condnTab.innerHTML=`${condn}`;
+    windTab.innerHTML=`Wind:${wind}km/hr`;
+    humTab.innerHTML=`Humidity:${hum}%`;  
+    
+}
+
+weatherApi();
 
 
 

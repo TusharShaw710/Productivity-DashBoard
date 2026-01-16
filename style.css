@@ -40,11 +40,12 @@ html,body{
     height: 100%;
     width: 100%;
     background-color: var(--pri);
+    overflow: auto;
 }
+
 nav{
-    width: 100%;
-    height: 50px;
-    background-color: var(--sec);
+    padding: 20px;
+    position: fixed;
 }
 
 section.all-elems{
@@ -56,6 +57,45 @@ section.all-elems{
     flex-wrap: wrap;
     justify-content:space-around;
     position: absolute;
+}
+.all-elems .header{
+    height: 200px;
+    width: 100%;
+    background-image: url(https://images.unsplash.com/photo-1606050716461-78add0ad1785?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    object-fit: cover;
+    background-position: center;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .part-1 h1{
+    font-size: 50px;
+    font-weight: 700;
+}
+.header .part-1 h4{
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.header .part-2 h2{
+    font-size: 30px;
+}
+.header .part-2 h4{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.allFeatures{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content:space-around;
 }
 
 .elem{
@@ -420,6 +460,24 @@ img{
     transform: translate(-50%,-50%);
 }
 
+.nav-link{
+    height: 40px;
+    width: 100%;
+    font-size: 20px;
+    background-color: var(--tri1);
+    display: flex;
+    justify-content: space-between;
+}
 
+.nav-link button{
+    border-radius: 50%;
+    border: none;
+}
+
+.nav-link button img{
+    height: 30px;
+    border-radius: 50%;
+
+}
 
 
