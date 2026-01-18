@@ -233,6 +233,40 @@ async function weatherApi(){
 
 weatherApi();
 
+let theme=document.querySelector('.theme');
+let root=document.documentElement;
+
+let flag=0;
+
+theme.addEventListener('click',()=>{
+    // --pri:#364F6B;
+    // --sec:#3FC1C9;
+    // --tri1:#F5F5F5;
+    // --tri2:#FC5185;
+    if(flag == 0){
+        root.style.setProperty('--pri','#AD8B73');
+        root.style.setProperty('--sec','#CEAB93');
+        root.style.setProperty('--tri1','#E3CAA5');
+        root.style.setProperty('--tri2','#FFFBE9');
+        flag=1;
+    }else if(flag ==1){
+        root.style.setProperty('--pri','#3F9AAE');
+        root.style.setProperty('--sec','#79C9C5');
+        root.style.setProperty('--tri1','#FFE2AF');
+        root.style.setProperty('--tri2','#F96E5B');
+        flag=2;
+    }else if(flag ==2){
+        
+        root.style.setProperty('--pri','#364F6B');
+        root.style.setProperty('--sec','#3FC1C9');
+        root.style.setProperty('--tri1','#F5F5F5');
+        root.style.setProperty('--tri2','#FC5185');
+        flag=0;
+
+    }
+    
+})
+
 
 
 
